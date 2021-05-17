@@ -52,8 +52,10 @@ async function main() {
     process.exit(0);
   }
 
+
+
   console.log(`${chalk.greenBright('schema-lint')}`);
-  const configFile = path.join(
+  const configFile = path.isAbsolute(options.config) ? options.config : path.join(
     process.cwd(),
     options.config || '.schemalintrc.js'
   );
